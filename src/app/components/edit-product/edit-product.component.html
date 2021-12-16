@@ -1,0 +1,33 @@
+<div class="container"  >
+  <!--{{productformGroup.value|json}}-->
+    <form   [formGroup]="form" >
+      <div class="form-groupe">
+        <label >ID</label>
+        <input class="form-control" type="text" formControlName="id"  />
+
+      </div>
+      <div class="form-groupe">
+        <label >Name</label>
+        <input   [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+        type="text" class="form-control" formControlName="name">
+
+        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+          <div *ngIf="f['name'].errors['required']">Fullname is required</div>
+        </div>
+      </div>
+      <div class="form-groupe">
+        <label >Quantity</label>
+        <input type="text" class="form-control" formControlName="quantity">
+        </div>
+        <div class="form-groupe">
+          <label >Selected</label>
+      <input type="checkbox" formControlName="selected" class="form-check"/>
+       </div>
+       <div class="form-groupe">
+        <label>Available</label>
+      <input type="checkbox" formControlName="available" class="form-check"/>
+    </div>
+     <button  (click)="onUpdateProduct()" class="btn btn-success">save</button>
+   </form>
+
+    </div>
