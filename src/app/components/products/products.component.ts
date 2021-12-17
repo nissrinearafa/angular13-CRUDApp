@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, Observable, of, startWith } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { ProductsService } from 'src/app/services/products.service';
-import { AppDataState, DataStateEnum } from 'src/app/state/product.state';
+import { ActionEvent, AppDataState, DataStateEnum, ProductActionsTypes } from 'src/app/state/product.state';
 
 @Component({
   selector: 'app-products',
@@ -17,14 +17,17 @@ export class ProductsComponent implements OnInit {
 //on met $ pour indiquer que c'un variable observale=c-à-d vous allez besoin de faire subscribe pour pouvoire récupérer les données s'ils arrivent
 //products$:Observable<Product[]>|null=null;
  //methode 2 avec gestion errors
- products$:Observable<AppDataState<Product[]>>|null=null;
-readonly DataStateEnum=DataStateEnum;
+  products$:Observable<AppDataState<Product[]>>|null=null;
+
+
+ readonly DataStateEnum=DataStateEnum;
 constructor(private productService:ProductsService ,private router:Router) { }
 
   ngOnInit(): void {
   }
   onGetAllProducts(){
-
+    console.log("start");
+    console.log(this.products$);
     console.log("start");
 //méthod2
 //this.products$=this.productService.getAllProducts();
@@ -122,5 +125,24 @@ this.router.navigateByUrl("/newProduct");
   onEditProduct(p:Product ){
 
 this.router.navigateByUrl("/editProduct/"+p.id);
+  }
+
+  onActionEvent($event:ActionEvent){
+//console.log($event);
+ switch($event.type){
+   case ProductActionsTypes.GET_ALL_PRODUCTS:this.onGetAllProducts();break;
+   case ProductActionsTypes.GET_SELECTED_PRODUCTS:this.onGetSelectedProducts();break;
+   case ProductActionsTypes.GET_AVAILABLE_PRODUCTS:this.onGetAvailabeProducts();break;
+   case ProductActionsTypes.NEW_PRODUCT:this.onNewProducts();break;
+
+   case ProductActionsTypes.SEARCH_PRODUCTS:this.onSearch($event.payload);break;
+
+   case ProductActionsTypes.SELECT_PRODUCT:this.onSelect($event.payload);break;
+   case ProductActionsTypes.DELET_PRODUCT:this.onDelete($event.payload);break;
+   case ProductActionsTypes.EDIT_PRODUCT:this.onEditProduct($event.payload);break;
+
+
+
+  }
   }
 }

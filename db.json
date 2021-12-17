@@ -39,6 +39,14 @@
       "selected": true,
       "available": true,
       "id": 5
+    },
+    {
+      "name": "nnn",
+      "price": 0,
+      "quantity": "9",
+      "selected": true,
+      "available": true,
+      "id": 6
     }
   ]
 }

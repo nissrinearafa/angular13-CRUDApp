@@ -1,0 +1,71 @@
+
+ <div class="container">
+  <ng-container *ngIf="productsInput$ | async as result" [ngSwitch]="result.dataState">
+
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+      Loading......
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+     <div class="alert-danger"></div>
+      {{result.errorMessage}}
+   </ng-container>
+
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+
+     <div class="container" *ngIf="productsInput$">
+
+       <table class="table">
+         <tr>
+
+           <th>ID</th>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Quantity</th>
+           <th>Selected</th>
+            <th>Available</th>
+         </tr>
+         <!--display content pou interpréter tr-->
+         <app-product-item
+         (eventEmiter)="onActionEvent($event)" [pr]="p" *ngFor="let p of result.data"
+         style="display: contents;"
+         ></app-product-item>
+
+       </table>
+
+       </div>
+        </ng-container>
+       </ng-container>
+</div>
+
+<!-- appliquant méthode1
+
+div class="container" *ngIf="products">
+<table class="table">
+<tr>
+
+  <th>ID</th>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <th>Selected</th>
+   <th>Available</th>
+</tr>
+<tr *ngFor="let p of products">
+<td>{{p.id}}</td>
+<td>{{p.name}}</td>
+<td>{{p.price}}</td>
+<td>{{p.quantity}}</td>
+<td>{{p.selected}}</td>
+<td>{{p.available}}</td>
+
+</tr>
+</table>
+
+</div-->
+
+
+
+
+
+<!-- appliquant méthode2-->
+

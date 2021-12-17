@@ -9,7 +9,7 @@ import{HttpClientModule} from '@angular/common/http';
 import { ProductsComponent } from './components/products/products.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
-import { ProductItemComponent } from './components/products/product-item/product-item.component';
+import { ProductItemComponent } from './components/products/products-list/product-item/product-item.component';
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { ProductsNavBarComponent } from './components/products/products-nav-bar/products-nav-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
