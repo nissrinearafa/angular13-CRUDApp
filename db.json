@@ -5,7 +5,7 @@
       "name": "computer",
       "price": 4300,
       "quantity": "500",
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
@@ -21,14 +21,14 @@
       "name": "smartphone",
       "price": 2300,
       "quantity": 600,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
       "name": "p",
       "price": 0,
       "quantity": "2",
-      "selected": true,
+      "selected": false,
       "available": true,
       "id": 4
     },
@@ -36,7 +36,7 @@
       "name": "",
       "price": 0,
       "quantity": 0,
-      "selected": true,
+      "selected": false,
       "available": true,
       "id": 5
     },

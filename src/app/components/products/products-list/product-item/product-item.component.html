@@ -3,7 +3,10 @@
   <td>{{pr!.name}}</td>
   <td>{{pr!.price}}</td>
   <td>{{pr!.quantity}}</td>
-  <td>{{pr!.selected}}</td>
+  <td>
+    <span [ngClass]="pr!.selected ?'fa fa-check text-sucess':''"></span>
+  </td>
+
   <td>{{pr!.available}}</td>
   <td>
 

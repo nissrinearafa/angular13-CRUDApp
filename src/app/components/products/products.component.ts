@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { catchError, map, Observable, of, startWith } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { ProductsService } from 'src/app/services/products.service';
+import { EventDriverService } from 'src/app/state/product.service';
 import { ActionEvent, AppDataState, DataStateEnum, ProductActionsTypes } from 'src/app/state/product.state';
 
 @Component({
@@ -21,9 +22,15 @@ export class ProductsComponent implements OnInit {
 
 
  readonly DataStateEnum=DataStateEnum;
-constructor(private productService:ProductsService ,private router:Router) { }
+constructor(
+  private eventDriveService:EventDriverService,
+  private productService:ProductsService ,private router:Router) { }
 
   ngOnInit(): void {
+    //écouter évenement
+    this.eventDriveService.sourceEventSubjectObservable.subscribe((actionEvent:ActionEvent)=>{
+      this.onActionEvent(actionEvent);
+    })
   }
   onGetAllProducts(){
     console.log("start");

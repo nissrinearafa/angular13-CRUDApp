@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/services/products.service';
+import { EventDriverService } from 'src/app/state/product.service';
 
 @Component({
   selector: 'app-new-product',
@@ -17,7 +18,10 @@ export class NewProductComponent implements OnInit {
 
   });
   submitted:boolean=false;
-  constructor(private fb:FormBuilder,private productService:ProductsService) { }
+  constructor(private eventDriverServer:EventDriverService,
+    private fb:FormBuilder,private productService:ProductsService) {
+
+     }
 
   ngOnInit(): void {
     this.form=this.fb.group({

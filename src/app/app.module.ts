@@ -13,6 +13,7 @@ import { ProductItemComponent } from './components/products/products-list/produc
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { ProductsNavBarComponent } from './components/products/products-nav-bar/products-nav-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StatistiquesComponent } from './components/statistiques/statistiques.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewProductComponent,
     ProductItemComponent,
     ProductsListComponent,
-    ProductsNavBarComponent
+    ProductsNavBarComponent,
+    StatistiquesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <!--dans notre composant product-app-component ,il fait appel à un sous composant product-navbar,
 en meme temps le composant product-app-component(composant parent) va écouter des évenement qui peut provenir d'un event émeteur qui est déclarer dans app-product navbar et a chaque foisqu 'il a un event qui est émit par ce émetteur
  cette methode va s'éxécuter-->
-<app-products-nav-bar (producteventEmitter)=" onActionEvent($event)"></app-products-nav-bar>
+<app-products-nav-bar  ></app-products-nav-bar>
 <!--
 au niveau de mon composant product-component,le composant app-product-component a un input product$ transmettre product$-->
-<app-products-list [productsInput$]="products$"(productsEventEmitter)="onActionEvent($event)" ></app-products-list>
+<app-products-list [productsInput$]="products$"   ></app-products-list>

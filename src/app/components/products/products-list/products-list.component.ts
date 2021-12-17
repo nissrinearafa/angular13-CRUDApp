@@ -14,7 +14,8 @@ export class ProductsListComponent implements OnInit {
  //le cpomposantt fil recoit la list de produite depuis le composant parent
 
   @Input()  productsInput$:Observable<AppDataState<Product[]>>|null=null;
-   @Output() productsEventEmitter:EventEmitter<ActionEvent>=new EventEmitter();
+ // nous somme plus besoin de remonter les évenementts
+  // @Output() productsEventEmitter:EventEmitter<ActionEvent>=new EventEmitter();
   readonly DataStateEnum=DataStateEnum;
 
   constructor() { }
@@ -22,7 +23,7 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    onEditProduct(p:Product){
+  /*  onEditProduct(p:Product){
       this.productsEventEmitter.emit({type:ProductActionsTypes.EDIT_PRODUCT,payload:p})
 
    }
@@ -33,7 +34,7 @@ export class ProductsListComponent implements OnInit {
     onSelect(p:Product){
      this.productsEventEmitter.emit({type:ProductActionsTypes.SELECT_PRODUCT,payload:p})
    }
-   onActionEvent($event:ActionEvent){
-this.productsEventEmitter.emit($event);
-   }
+//    onActionEvent($event:ActionEvent){
+// this.productsEventEmitter.emit($event);
+//    }*/
 }
